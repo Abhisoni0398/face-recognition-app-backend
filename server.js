@@ -97,6 +97,12 @@ app.put('/image', (req, res) => {
   .catch(err => res.status(400).json('unable to get entries'))
 })
 
+app.use(function(req,res,next){
+  res.header('Access-Control-Allow-Origin',"*");
+  res.header('Access-Control-Allow-Origin',"GET,PUT,POST,DELETE");
+  res.header('Access-Control-Allow-Origin',"Content-Type");
+})
+
 app.listen(process.env.PORT || 3000, ()=> {
   console.log(`app is running on port ${process.env.PORT}`);
 })
